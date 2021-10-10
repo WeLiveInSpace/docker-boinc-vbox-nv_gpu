@@ -8,8 +8,10 @@ This builds a docker image based on ubuntu 20.04 for boinc that allows for nvidi
 3. cd into repo root directory
 4. Build the dockerfile
 
-eg. docker build -t boinc-vbox-nvidia:20.04 /path/to/cloned/repository
-
+eg. 
+```
+docker build -t boinc-vbox-nvidia:20.04 /path/to/cloned/repository
+```
 5. Bring up the image using run
 
 ##Docker Run command template
