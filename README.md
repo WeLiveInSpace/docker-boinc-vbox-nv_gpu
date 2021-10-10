@@ -16,7 +16,7 @@ docker build -t boinc-vbox-nvidia:20.04 /path/to/cloned/repository
 ```
 5. Bring up the image using run
 
-##Docker Run command template
+## Docker Run command template
 Replace [...] with what you want
 
 ```
@@ -37,7 +37,7 @@ Replace [...] with what you want
 
 
 
-##Docker Run command example
+## Docker Run command example
 ```
   sudo docker run -d \
     --name=boinc \
@@ -51,4 +51,22 @@ Replace [...] with what you want
     -e TZ=America/Los_Angeles \
     --restart unless-stopped \
     boinc-vbox-nvidia:20.04
+```
+
+## Tips
+To access BOINC remotely ensure the following files are present in BOINC's data directory. This can be done before the initial docker run or afterwards.
+
+The docker container may need to be restarted to pick up the new configuration
+
+1. gui_rpc_auth.cfg <-- The password you want to use to access boinc remotely
+```
+boinc_password
+```
+2. remote_hosts.cfg <-- file contains a list of hostnames or IP addresses (one per line) of remote hosts, that are allowed to connect and to control BOINC
+```
+#client 1 using hostname
+host.example.com
+
+#client 2 using ip
+192.168.0.180
 ```
