@@ -5,16 +5,17 @@ Tested on Ubuntu 20.04 host. Results may vary on other linux distros
 
 This builds a docker image based on ubuntu 20.04 for boinc that allows for nvidia gpu and virtualbox passthrough
 
-1. Ensure virtualbox, virtualbox-dkms, nvidia-container-toolkit  is installed on the host
-2. clone repo
-3. cd into repo root directory
-4. Build the dockerfile
+1. Install nvidia base drivers on host if not already present (recommend a reboot afterwards)
+2. Install  virtualbox, virtualbox-dkms, nvidia-container-toolkit on host if not already present (recommend a reboot afterwards)
+3. clone repo
+4. cd into repo root directory
+5. Build the dockerfile
 
 eg. 
 ```
 docker build -t boinc-vbox-nvidia:20.04 /path/to/cloned/repository
 ```
-5. Bring up the image using run
+6. Bring up the image using run
 
 ## Docker Run command template
 Replace [...] with what you want
