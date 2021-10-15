@@ -22,14 +22,18 @@ RUN \
   echo "**BUILDING VIRTUALBOX LAYER***" \
   && curl -sSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | apt-key add - \
   && echo "deb http://download.virtualbox.org/virtualbox/debian ${UBU_VER} contrib" >> /etc/apt/sources.list.d/virtualbox.list \
-  && apt-get update && apt-get install -y --no-install-recommends \
-    virtualbox-dkms \
+#  && apt-get update && apt-get install -y --no-install-recommends \
+#    virtualbox-dkms \
   && apt-get update && apt-get install -y --no-install-recommends \
     virtualbox-6.1 \
   && rm -rf \
     /tmp/* \
     /var/lib/apt/lists/* \
     /var/tmp/*
+
+RUN \
+  curl -sSL https://download.virtualbox.org/virtualbox/6.1.26/Oracle_VM_VirtualBox_Extension_Pack-6.1.26.vbox-extpack -o Oracle_VM_VirtualBox_Extension_Pack-6.1.26.vbox-extpack \
+  && echo y | VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.1.26.vbox-extpack
 
 RUN \
   echo "**BUILDING NVIDIA LAYER**" \
